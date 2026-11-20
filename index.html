@@ -15,30 +15,61 @@
   --cream:#E6D8BE; --paper:#EDE2CC; --olive:#4A5638; --olive-deep:#2F3826;
   --sage:#8C9779; --sage-text:#525E42; --sage-soft:#E1E4D5; --sand:#DDCDAF;
   --gold:#B39558; --gold-text:#785E29; --ink:#2F3326; --muted:#525646;
-  --serif:'Cormorant Garamond', Georgia, serif; --script:'Pinyon Script', cursive; --sans:'Jost', system-ui, sans-serif;
   --ease:cubic-bezier(.22,.8,.24,1);
+
+  /* Famílias Tipográficas */
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --script:'Pinyon Script', cursive;
+  --sans:'Jost', system-ui, sans-serif;
+
+  /* Espaçamento entre Letras (Tracking) */
+  --track-tight:-0.015em;
+  --track-base:0;
+  --track-snug:0.16em;
+  --track-nav:0.22em;
+  --track-caps:0.26em;
+  --track-wide:0.32em;
+
+  /* Altura de Linha (Leading) */
+  --lh-flat:1;
+  --lh-tight:1.05;
+  --lh-title:1.15;
+  --lh-quote:1.25;
+  --lh-snug:1.45;
+  --lh-body:1.72;
+
+  /* Escala Tipográfica Editorial */
+  --text-micro:10.5px;
+  --text-tag:11px;
+  --text-xs:11.5px;
+  --text-sm:12.5px;
+  --text-base:16px;
+  --text-lead:17px;
+  --text-sub:22px;
+  --text-h3:32px;
+  --text-h2:clamp(40px, 5vw, 64px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden;background:#E6D8BE}
-body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:var(--text-base);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 svg{display:block}
 section{overflow-x:clip}
 :focus-visible{outline:2px solid var(--olive-deep);outline-offset:3px}
 .services :focus-visible,.contact :focus-visible,footer :focus-visible{outline-color:#E3CD95}
-.skip-link{position:fixed;top:-120px;left:20px;z-index:200;background:var(--olive-deep);color:var(--paper);padding:12px 20px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--gold);transition:top .2s}
+.skip-link{position:fixed;top:-120px;left:20px;z-index:200;background:var(--olive-deep);color:var(--paper);padding:12px 20px;font-size:var(--text-sm);letter-spacing:var(--track-snug);text-transform:uppercase;border:1px solid var(--gold);transition:top .2s}
 .skip-link:focus{top:16px;outline:2px solid var(--gold);outline-offset:3px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-.eyebrow{font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--sage-text);font-weight:400;display:inline-flex;align-items:center;gap:14px}
+.eyebrow{font-size:var(--text-xs);letter-spacing:var(--track-wide);text-transform:uppercase;color:var(--sage-text);font-weight:400;display:inline-flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
 .script{font-family:var(--script);color:var(--gold-text);font-weight:400}
-h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.05;color:var(--olive-deep)}
-h2{font-size:clamp(40px,5vw,64px);margin-top:14px}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:var(--lh-tight);color:var(--olive-deep)}
+h2{font-size:var(--text-h2);margin-top:14px}
 h2 em,h1 em{font-style:italic;color:var(--sage-text)}
 
 /* botões */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 34px;border:1px solid var(--olive);color:var(--olive);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;overflow:hidden;transition:color .5s var(--ease),transform .3s var(--ease);isolation:isolate}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 34px;border:1px solid var(--olive);color:var(--olive);font-size:var(--text-sm);letter-spacing:var(--track-nav);text-transform:uppercase;font-weight:400;overflow:hidden;transition:color .5s var(--ease),transform .3s var(--ease);isolation:isolate}
 .btn::before{content:"";position:absolute;inset:0;background:var(--olive);transform:translateY(101%);transition:transform .5s var(--ease);z-index:-1}
 .btn:hover{color:var(--paper)}
 .btn:hover::before{transform:none}
@@ -53,15 +84,15 @@ header.scrolled,header.menu-open{background:rgba(247,244,238,.95);backdrop-filte
 .nav{display:flex;align-items:center;justify-content:space-between;height:86px;transition:height .35s var(--ease);gap:16px}
 header.scrolled .nav{height:70px}
 .logo{display:flex;align-items:center;flex-shrink:0}
-.logo-img{display:block;height:46px;width:auto;transition:height .35s var(--ease)}
-header.scrolled .logo-img{height:40px}
-.links{display:flex;gap:38px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.logo-img{display:block;height:42px;width:auto;transition:height .35s var(--ease)}
+header.scrolled .logo-img{height:36px}
+.links{display:flex;gap:38px;font-size:var(--text-sm);letter-spacing:var(--track-nav);text-transform:uppercase}
 .links a{position:relative;color:var(--muted);transition:color .3s;padding:6px 0}
 .links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
 .links a:hover{color:var(--olive)}
 .links a:hover::after{transform:scaleX(1);transform-origin:left}
 .nav-actions{display:none;align-items:center;gap:10px}
-.mwa{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border:1px solid var(--olive);color:var(--olive);font-size:11px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;transition:background .3s,color .3s}
+.mwa{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border:1px solid var(--olive);color:var(--olive);font-size:var(--text-tag);letter-spacing:var(--track-snug);text-transform:uppercase;white-space:nowrap;transition:background .3s,color .3s}
 .mwa:hover{background:var(--olive);color:var(--paper)}
 .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(74,86,56,.35);color:var(--olive-deep);transition:border-color .3s,background .3s}
 .menu-toggle:hover{border-color:var(--olive);background:rgba(74,86,56,.06)}
@@ -76,36 +107,35 @@ header.scrolled .logo-img{height:40px}
 .mobile-nav-list{display:flex;flex-direction:column;gap:8px;list-style:none}
 .mobile-nav-list a{display:flex;align-items:center;justify-content:space-between;padding:16px 4px;border-bottom:1px solid rgba(179,149,88,.25);font-family:var(--serif);font-size:30px;color:var(--olive-deep);transition:color .25s,padding-left .25s}
 .mobile-nav-list a:hover{color:var(--olive);padding-left:8px}
-.mobile-nav-list a span{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-text)}
+.mobile-nav-list a span{font-family:var(--sans);font-size:var(--text-tag);letter-spacing:var(--track-nav);text-transform:uppercase;color:var(--gold-text)}
 .mobile-menu-foot{margin-top:32px;display:flex;flex-direction:column;gap:14px}
 .mobile-menu-foot .btn{width:100%}
-.mobile-menu-meta{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage-text);text-align:center}
-@media (max-width:860px){.links{display:none}.nav-actions{display:flex}}
-@media (max-width:380px){.nav{height:72px;gap:10px}.logo-img{height:38px}header.scrolled .logo-img{height:36px}.mwa{min-height:38px;padding:0 10px;font-size:10px;letter-spacing:.12em}.menu-toggle{width:38px;height:38px}}
+.mobile-menu-meta{font-size:var(--text-xs);letter-spacing:var(--track-nav);text-transform:uppercase;color:var(--sage-text);text-align:center}
+@media (max-width:860px){.links{display:none}.nav-actions{display:flex;align-items:center;gap:10px}.logo-img{height:38px}header.scrolled .logo-img{height:34px}.mwa{min-height:38px;padding:0 12px;font-size:var(--text-micro);letter-spacing:var(--track-snug);border-color:rgba(74,86,56,.35);position:relative}.mwa::after{content:"";position:absolute;inset:-4px}}
+@media (max-width:380px){.nav{height:72px;gap:8px}.logo-img{height:33px}header.scrolled .logo-img{height:30px}.mwa{min-height:36px;padding:0 10px;font-size:10px;letter-spacing:0.14em}.menu-toggle{width:38px;height:38px;position:relative}.menu-toggle::after{content:"";position:absolute;inset:-4px}}
 
 /* hero */
 .hero-band{background:linear-gradient(135deg,#FBF9F5 0%,#F7F4EE 58%,#EFE9DC 100%);position:relative}
-.hero{min-height:clamp(620px,88vh,860px);display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center;padding:128px 28px 84px;max-width:1200px;margin:0 auto;position:relative}
-.hero .script{font-size:clamp(28px,3.2vw,40px);display:block;margin-bottom:8px;line-height:1.15}
-.hero h1{font-size:clamp(42px,5.4vw,78px);letter-spacing:-.01em;line-height:1.04}
+.hero{min-height:clamp(600px,86vh,840px);display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center;padding:124px 28px 80px;max-width:1200px;margin:0 auto;position:relative}
+.hero .script{font-size:clamp(26px,2.6vw,36px);display:block;margin-bottom:8px;line-height:var(--lh-title);white-space:nowrap}
+.hero h1{font-size:clamp(40px,5.2vw,74px);letter-spacing:var(--track-tight);line-height:1.04}
 .line{display:block;overflow:hidden;padding-bottom:.06em}
 .line > span{display:inline-block;transform:translateY(110%);transition:transform 1s var(--ease)}
 .loaded .line > span{transform:none}
 .loaded .line:nth-child(2) > span{transition-delay:.1s}
 .loaded .line:nth-child(3) > span{transition-delay:.2s}
-.hero p{max-width:450px;color:var(--muted);font-size:17px;line-height:1.7;margin:24px 0 36px}
+.hero p{max-width:450px;color:var(--muted);font-size:var(--text-lead);line-height:var(--lh-body);margin:22px 0 32px}
 .fade-up{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .loaded .fade-up{opacity:1;transform:none}
 .loaded .d1{transition-delay:.3s}.loaded .d2{transition-delay:.42s}.loaded .d3{transition-delay:.54s}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.places{margin-top:34px;font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--sage-text)}
 .hero-art{position:relative}
-.hero-frame{position:relative;border-radius:4px;overflow:hidden;background:#EFE9DC;box-shadow:0 28px 60px -26px rgba(47,56,38,.2)}
+.hero-frame{position:relative;border-radius:4px;overflow:hidden;background:#EFE9DC;box-shadow:0 24px 54px -22px rgba(47,56,38,.18)}
 .hero-frame .hero-photo{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover}
 @media (max-width:1100px){.hero{gap:44px}}
 @media (max-width:900px){.hero{grid-template-columns:1fr;padding:106px 24px 56px;gap:36px;min-height:auto}.hero-art{max-width:520px;margin:0 auto;width:100%}}
-@media (max-width:620px){.hero{padding:94px 20px 44px;gap:28px}.hero h1{font-size:clamp(34px,8.8vw,44px);line-height:1.08;letter-spacing:-.015em;text-wrap:balance}.hero h1 .line{display:inline;padding-bottom:0;overflow:visible}.hero h1 .line > span{display:inline;transform:none;transition:none}.hero p{margin:16px 0 26px;font-size:16px}.places{margin-top:24px}.hero .script{font-size:26px}.hero-actions .btn{width:100%}.wrap{padding:0 20px}.services,.work,.process,.quote{padding:64px 0}.contact{padding:72px 0 68px}.gallery{margin-top:36px;gap:16px}.svc-list{margin-top:36px}.steps{margin-top:40px}.ring{display:none}.contact .row .btn{width:100%}}
-@media (max-width:360px){.hero h1{font-size:32px;line-height:1.1}}
+@media (max-width:620px){.hero{padding:94px 20px 40px;gap:26px}.hero .script{font-size:clamp(22px,6vw,26px);margin-bottom:8px;white-space:nowrap}.hero h1{font-size:clamp(34px,8.8vw,44px);line-height:1.08;letter-spacing:var(--track-tight);text-wrap:balance}.hero h1 .line{display:inline;padding-bottom:0;overflow:visible}.hero h1 .line > span{display:inline;transform:none;transition:none}.hero p{margin:14px 0 22px;font-size:var(--text-base);line-height:1.65}.hero-actions{gap:12px}.hero-actions .btn{width:100%;min-height:50px}.hero-frame{box-shadow:0 16px 36px -16px rgba(47,56,38,.2)}.wrap{padding:0 20px}.services,.work,.process,.quote{padding:64px 0}.contact{padding:52px 0 48px}.contact p{margin:18px auto 26px}.gallery{margin-top:36px;gap:16px}.svc-list{margin-top:24px}.steps{margin-top:40px}.ring{display:none}.contact .row .btn{width:100%}}
+@media (max-width:360px){.hero h1{font-size:32px;line-height:1.1}.hero .script{font-size:20px}}
 
 /* desenho em traço que se desenha */
 .draw path,.draw line,.draw circle,.draw ellipse,.draw rect,.draw polyline{fill:none;stroke:var(--olive);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s var(--ease)}
@@ -134,10 +164,10 @@ header.scrolled .logo-img{height:40px}
 .about .card{aspect-ratio:4/5;background:var(--sage-soft);position:relative;overflow:hidden}
 .about .card svg{position:absolute;inset:0;width:100%;height:100%}
 .about .mini{position:absolute;right:-40px;bottom:-40px;width:46%;aspect-ratio:1;background:var(--paper);border:1px solid rgba(179,149,88,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:18px}
-.about .mini .script{font-size:34px;line-height:1}
-.about .mini small{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-text);margin-top:8px}
+.about .mini .script{font-size:34px;line-height:var(--lh-flat)}
+.about .mini small{font-size:var(--text-micro);letter-spacing:var(--track-caps);text-transform:uppercase;color:var(--sage-text);margin-top:8px}
 .about p{color:var(--muted);margin-top:22px;max-width:480px}
-.about .sign{font-family:var(--script);font-size:38px;color:var(--gold-text);margin-top:22px}
+.about .sign{font-family:var(--serif);font-size:var(--text-sub);color:var(--gold-text);margin-top:22px}
 @media (max-width:900px){.about{grid-template-columns:1fr;gap:48px;padding:84px 24px}.about .mini{right:0;bottom:-24px}}
 
 /* serviços */
@@ -152,10 +182,10 @@ header.scrolled .logo-img{height:40px}
 .svc{display:grid;grid-template-columns:90px 1fr 1.1fr 60px;gap:30px;align-items:center;padding:42px 0;border-bottom:1px solid rgba(255,255,255,.15);position:relative;cursor:default}
 .svc::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.04);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease)}
 .svc:hover::before{transform:none}
-.svc .n{font-family:var(--serif);font-style:italic;font-size:22px;color:#D9C694}
-.svc h3{font-size:clamp(30px,3.4vw,46px);color:var(--paper);transition:transform .6s var(--ease)}
+.svc .n{font-family:var(--serif);font-style:italic;font-size:var(--text-sub);color:#D9C694}
+.svc h3{font-size:clamp(28px,3.1vw,42px);color:var(--paper);transition:transform .6s var(--ease)}
 .svc:hover h3{transform:translateX(14px)}
-.svc p{color:#C4C8B8;font-size:15.5px}
+.svc p{color:#C4C8B8;font-size:var(--text-base);line-height:1.55}
 .svc .ic{width:52px;height:52px;border:1px solid rgba(201,208,182,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .26s var(--ease),background-color .26s var(--ease)}
 .svc .ic svg{width:20px;height:20px;display:block;transition:transform .26s var(--ease)}
 .svc .ic path{fill:none;stroke:#E9ECDF;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .26s var(--ease)}
@@ -177,11 +207,11 @@ button.svc{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,
 .pdiv{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(179,149,88,.36) 24%,rgba(201,208,182,.26) 50%,rgba(179,149,88,.36) 76%,transparent);margin:4px 0 26px}
 .pdiv-end{margin:28px 0 0}
 .pbody ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;margin:0 0 30px}
-.pbody li{display:flex;align-items:center;gap:12px;color:#D5D9C8;font-size:15.5px;opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.pbody li{display:flex;align-items:center;gap:12px;color:#D5D9C8;font-size:var(--text-base);opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .pbody li svg{width:16px;height:16px;flex:0 0 auto;fill:#A9C08A;stroke:#C9D0B6;stroke-width:.9}
 .svc-item.open .pbody li{opacity:1;transform:none}
 .svc-item.open .pbody li:nth-child(1){transition-delay:.25s}.svc-item.open .pbody li:nth-child(2){transition-delay:.35s}.svc-item.open .pbody li:nth-child(3){transition-delay:.45s}.svc-item.open .pbody li:nth-child(4){transition-delay:.55s}
-.pcta{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 26px;border:1px solid var(--gold);color:#E3CD95;font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:0;transition:opacity .5s .55s,background .4s,color .4s}
+.pcta{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 26px;border:1px solid var(--gold);color:#E3CD95;font-size:var(--text-sm);letter-spacing:var(--track-nav);text-transform:uppercase;opacity:0;transition:opacity .5s .55s,background .4s,color .4s}
 .svc-item.open .pcta{opacity:1}
 .pcta:hover{background:var(--gold);color:var(--olive-deep)}
 @media (max-width:900px){.services,.work,.process{padding:84px 0}.svc-list,.gallery{margin-top:48px}.steps{margin-top:52px}.contact{padding:96px 0 88px}}
@@ -206,13 +236,13 @@ button.svc{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,
 .tile .cap{position:absolute;left:30px;bottom:26px;z-index:2;color:var(--paper);transform:translateY(16px);opacity:0;transition:all .6s var(--ease)}
 .tile:hover .cap{transform:none;opacity:1}
 .tile .cap b{display:block;font-family:var(--serif);font-weight:400;font-style:italic;font-size:28px}
-.tile .cap span{font-size:11px;letter-spacing:.28em;text-transform:uppercase}
-.tile .tag{position:absolute;top:22px;left:24px;z-index:2;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--olive-deep);background:rgba(251,248,242,.9);padding:6px 12px}
+.tile .cap span{font-size:var(--text-tag);letter-spacing:var(--track-caps);text-transform:uppercase}
+.tile .tag{position:absolute;top:22px;left:24px;z-index:2;font-size:var(--text-micro);letter-spacing:var(--track-caps);text-transform:uppercase;color:var(--olive-deep);background:rgba(251,248,242,.9);padding:6px 12px}
 @media (max-width:760px){.tile{grid-column:span 12 !important;aspect-ratio:4/3 !important}.tile .cap{opacity:1;transform:none}.tile::after{opacity:1}}
 
 /* frase */
 .quote{padding:150px 0;text-align:center;position:relative;overflow:hidden;background:var(--paper)}
-.quote p{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(30px,4.4vw,58px);line-height:1.25;max-width:900px;margin:0 auto;color:var(--olive-deep)}
+.quote p{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(30px,4.4vw,58px);line-height:var(--lh-quote);max-width:900px;margin:0 auto;color:var(--olive-deep)}
 .quote .script{display:block;font-size:34px;margin-top:30px}
 .ring{position:absolute;border:1px solid rgba(179,149,88,.35);border-radius:50%;pointer-events:none}
 
@@ -224,8 +254,8 @@ button.svc{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,
 .step{padding-top:40px;position:relative}
 .step::before{content:"";position:absolute;top:-5px;left:0;width:11px;height:11px;border-radius:50%;background:var(--cream);border:1px solid var(--gold);transition:background .5s}
 .step.in::before{background:var(--gold)}
-.step .n{font-family:var(--serif);font-style:italic;font-size:54px;color:var(--gold-text);line-height:1}
-.step h3{font-size:32px;margin:16px 0 12px}
+.step .n{font-family:var(--serif);font-style:italic;font-size:54px;color:var(--gold-text);line-height:var(--lh-flat)}
+.step h3{font-size:var(--text-h3);margin:16px 0 12px}
 .step p{color:var(--muted)}
 @media (max-width:860px){.steps{grid-template-columns:1fr;gap:36px}}
 
@@ -234,14 +264,23 @@ button.svc{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,
 .contact h2{color:var(--paper);font-size:clamp(40px,7vw,96px)}
 .contact h2 em{color:#D9C694}
 .contact p{color:#D5D9C8;max-width:520px;margin:24px auto 38px}
-.contact .btn{border-color:var(--paper);color:var(--paper)}
+.contact .btn{border-color:var(--paper);color:var(--paper);gap:10px}
 .contact .btn::before{background:var(--paper)}
 .contact .btn:hover{color:var(--olive-deep)}
-.contact .num{margin-top:22px;font-size:14px;letter-spacing:.16em;color:#C9D0B6}
+.btn-ic{flex-shrink:0;transition:transform .4s var(--ease)}
+.btn:hover .btn-ic,.pcta:hover .btn-ic{transform:scale(1.08)}
 .contact .row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-footer{background:var(--olive-deep);color:#C9D0B6;padding:42px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+footer{background:var(--olive-deep);color:#C9D0B6;padding:42px 0;font-size:var(--text-sm);letter-spacing:var(--track-nav);text-transform:uppercase}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer .logo-word{color:var(--paper);font-size:22px}
+footer .logo-word{color:var(--paper);font-size:var(--text-sub)}
+.footer-tel{color:#C9D0B6;letter-spacing:var(--track-snug);transition:color .3s;white-space:nowrap}
+.footer-tel:hover{color:var(--paper)}
+@media (max-width:620px){
+  footer{padding:34px 0}
+  footer .wrap{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .footer-desc{font-size:11.5px}
+  .footer-tel{font-size:13px;padding:4px 0}
+}
 
 /* cursor suave (só desktop) */
 .cursor{position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:100;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),background .35s;mix-blend-mode:multiply;opacity:0}
@@ -267,22 +306,22 @@ footer .logo-word{color:var(--paper);font-size:22px}
 @media (prefers-reduced-motion:reduce){.wipe{clip-path:none}}
 
 /* nome da marca legível */
-.brand-sign{display:block;font-family:var(--serif);font-style:normal;font-weight:500;font-size:22px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-text);margin-top:30px}
-.about .sign.brand-sign{font-family:var(--serif);font-style:normal;font-weight:500;font-size:22px;letter-spacing:.32em;margin-top:26px}
+.brand-sign{display:block;font-family:var(--serif);font-style:normal;font-weight:500;font-size:var(--text-sub);letter-spacing:var(--track-wide);text-transform:uppercase;color:var(--gold-text);margin-top:30px}
+.about .sign.brand-sign{font-family:var(--serif);font-style:normal;font-weight:500;font-size:var(--text-sub);letter-spacing:var(--track-wide);margin-top:26px}
 /* celular: imagens menores e mais elegantes */
 @media (max-width:620px){
   .about{padding:64px 20px 72px;gap:42px}
   .hero-art{max-width:100%}
   .about .art{width:84%;margin:0 auto}
   .about .mini{width:50%;right:-10px;bottom:-22px;padding:12px}
-  .about .mini .script{font-size:22px}
+  .about .mini .script{font-size:var(--text-sub)}
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .gallery .tile{grid-column:span 1 !important;aspect-ratio:3/4 !important}
   .gallery .tile:first-child{grid-column:span 2 !important;aspect-ratio:4/3 !important}
   .tile .cap{left:14px;bottom:14px;right:10px}
   .tile .cap b{font-size:19px}
-  .tile .cap span{font-size:9px;letter-spacing:.18em}
-  .tile .tag{top:10px;left:10px;font-size:8.5px;letter-spacing:.16em;padding:4px 8px}
+  .tile .cap span{font-size:var(--text-micro);letter-spacing:var(--track-snug)}
+  .tile .tag{top:10px;left:10px;font-size:var(--text-micro);letter-spacing:var(--track-snug);padding:4px 8px}
 }
 
 /* ===== natureza ===== */
@@ -331,7 +370,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
 <header id="top">
   <div class="wrap nav">
     <a href="#inicio" class="logo" aria-label="SilFer Home, início">
-      <img class="logo-img" src="img/assinatura-horizontal-oliva.svg" alt="SilFer Home" width="1100" height="340">
+      <img class="logo-img" src="img/assinatura-horizontal-oliva.svg" alt="SilFer Home" width="620" height="150">
     </a>
     <nav class="links" aria-label="Seções">
       <a href="#sobre">Sobre</a><a href="#servicos">Coleções</a><a href="#projetos">Galeria</a><a href="#contato">Contato</a>
@@ -359,7 +398,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
     </ul>
   </nav>
   <div class="mobile-menu-foot">
-    <a class="btn solid" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span class="arr">→</span></a>
+    <a class="btn solid" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Falar no WhatsApp</a>
     <div class="mobile-menu-meta">Rio de Janeiro &nbsp;·&nbsp; São Paulo</div>
   </div>
 </div>
@@ -372,10 +411,9 @@ footer .logo-word{color:var(--paper);font-size:22px}
         <h1><span class="line"><span>Elegância</span></span> <span class="line"><span>construída em</span></span> <span class="line"><span>cada <em>elemento</em></span></span></h1>
         <p class="fade-up d1">Enxoval bordado, kits para presentear, mesa posta e decoração com acabamento delicado, feitos para tornar cada momento especial.</p>
         <div class="hero-actions fade-up d2">
-          <a class="btn solid magnet" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer">Fazer meu pedido <span class="arr">→</span></a>
+          <a class="btn solid magnet" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Fazer meu pedido</a>
           <a class="btn magnet" href="#projetos">Ver galeria</a>
         </div>
-        <div class="places fade-up d3">Rio de Janeiro &nbsp;·&nbsp; São Paulo</div>
       </div>
       <div class="hero-art fade-up d1">
         <div class="hero-frame">
@@ -387,8 +425,8 @@ footer .logo-word{color:var(--paper);font-size:22px}
 
   <div class="marquee" aria-hidden="true">
     <div class="track">
-      <span>Enxoval bordado</span><span>Kits para presentear</span><span>Mesa posta</span><span>Decoração & vitrines</span><span>Rio de Janeiro & São Paulo</span>
-      <span>Enxoval bordado</span><span>Kits para presentear</span><span>Mesa posta</span><span>Decoração & vitrines</span><span>Rio de Janeiro & São Paulo</span>
+      <span>Enxoval bordado</span><span>Kits para presentear</span><span>Mesa posta</span><span>Decoração & vitrines</span>
+      <span>Enxoval bordado</span><span>Kits para presentear</span><span>Mesa posta</span><span>Decoração & vitrines</span>
     </div>
   </div>
 
@@ -418,7 +456,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
           <div class="svc-panel" id="svc-p1" role="region" aria-label="Enxoval bordado" inert><div class="pin"><div class="pbody">
             <div class="pdiv" aria-hidden="true"></div>
             <ul><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Toalhas de banho, rosto e lavabo</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Roupões e chinelos personalizados</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Nome, iniciais, monograma ou frase</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Cores de linha à sua escolha</li></ul>
-            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20enxoval%20bordado." target="_blank" rel="noopener noreferrer">Pedir pelo WhatsApp <span>→</span></a>
+            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20enxoval%20bordado." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Pedir pelo WhatsApp</a>
             <div class="pdiv pdiv-end" aria-hidden="true"></div>
           </div></div></div>
         </div>
@@ -427,7 +465,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
           <div class="svc-panel" id="svc-p2" role="region" aria-label="Kits para presentear" inert><div class="pin"><div class="pbody">
             <div class="pdiv" aria-hidden="true"></div>
             <ul><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Kits para noiva, madrinhas e mães</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Caixa, laço de cetim e tag da marca</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Montamos o kit do seu jeito</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Ideal para casamentos e datas especiais</li></ul>
-            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20montar%20um%20kit%20para%20presentear." target="_blank" rel="noopener noreferrer">Pedir pelo WhatsApp <span>→</span></a>
+            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20montar%20um%20kit%20para%20presentear." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Pedir pelo WhatsApp</a>
             <div class="pdiv pdiv-end" aria-hidden="true"></div>
           </div></div></div>
         </div>
@@ -436,7 +474,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
           <div class="svc-panel" id="svc-p3" role="region" aria-label="Mesa posta" inert><div class="pin"><div class="pbody">
             <div class="pdiv" aria-hidden="true"></div>
             <ul><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Sousplats em crochê</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Porta-copos e centros de mesa</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Coleção especial de Natal</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Combinações de cores sob encomenda</li></ul>
-            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20as%20pe%C3%A7as%20de%20mesa%20posta." target="_blank" rel="noopener noreferrer">Pedir pelo WhatsApp <span>→</span></a>
+            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20as%20pe%C3%A7as%20de%20mesa%20posta." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Pedir pelo WhatsApp</a>
             <div class="pdiv pdiv-end" aria-hidden="true"></div>
           </div></div></div>
         </div>
@@ -445,7 +483,7 @@ footer .logo-word{color:var(--paper);font-size:22px}
           <div class="svc-panel" id="svc-p4" role="region" aria-label="Decoração & vitrines" inert><div class="pin"><div class="pbody">
             <div class="pdiv" aria-hidden="true"></div>
             <ul><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Decoração de ambientes</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Vitrines para o comércio</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Decoração de Natal e datas comemorativas</li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 19 C3 9 9 3 19 3 C19 13 13 19 3 19Z M3 19 L13 9"/></svg>Atendimento no RJ e em SP</li></ul>
-            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20decora%C3%A7%C3%A3o%20e%20vitrines." target="_blank" rel="noopener noreferrer">Pedir pelo WhatsApp <span>→</span></a>
+            <a class="pcta" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20decora%C3%A7%C3%A3o%20e%20vitrines." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Pedir pelo WhatsApp</a>
             <div class="pdiv pdiv-end" aria-hidden="true"></div>
           </div></div></div>
         </div>
@@ -495,17 +533,17 @@ footer .logo-word{color:var(--paper);font-size:22px}
     </div>
   </section>
 
-  <section id="contato" class="contact">
+
+    <section id="contato" class="contact">
     <div class="ring" style="width:700px;height:700px;left:50%;top:50%;transform:translate(-50%,-50%);border-color:rgba(217,198,148,.25)"></div>
     <div class="wrap reveal" style="position:relative">
       <span class="eyebrow" style="color:#C9D0B6">Contato</span>
       <h2>Vamos criar algo <em>lindo</em> juntos?</h2>
       <p>Atendemos no Rio de Janeiro e em São Paulo. Chame no WhatsApp para fazer o seu pedido ou tirar dúvidas.</p>
       <div class="row">
-        <a class="btn magnet" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span class="arr">→</span></a>
-        <a class="btn magnet" href="https://www.instagram.com/silferhome/" target="_blank" rel="noopener noreferrer">@silferhome</a>
+        <a class="btn magnet" href="https://wa.me/5522997890447?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as%20e%20cole%C3%A7%C3%B5es%20da%20SilFer%20Home." target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.83C9.36 7.83 9.08 7.89 8.84 8.15C8.61 8.41 7.94 9.03 7.94 10.3C7.94 11.57 8.87 12.79 9 12.96C9.13 13.13 10.8 15.86 13.44 16.88C15.63 17.72 16.08 17.55 16.55 17.51C17.02 17.47 18.06 16.9 18.28 16.28C18.5 15.66 18.5 15.13 18.43 15.02C18.36 14.91 18.18 14.85 17.92 14.72C17.65 14.59 16.37 13.96 16.13 13.87C15.89 13.78 15.72 13.74 15.55 14C15.38 14.26 14.89 14.85 14.74 15.02C14.6 15.19 14.45 15.21 14.19 15.08C13.93 14.95 13.08 14.67 12.07 13.77C11.28 13.07 10.75 12.2 10.6 11.95C10.46 11.69 10.59 11.55 10.72 11.42C10.84 11.3 10.98 11.11 11.12 10.95C11.26 10.79 11.3 10.68 11.39 10.51C11.48 10.34 11.43 10.19 11.37 10.06C11.3 9.93 10.78 8.65 10.56 8.13C10.35 7.62 10.13 7.69 9.97 7.68C9.82 7.67 9.68 7.67 9.53 7.83Z"/></svg>Falar no WhatsApp</a>
+        <a class="btn magnet" href="https://www.instagram.com/silferhome/" target="_blank" rel="noopener noreferrer"><svg class="btn-ic" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" ry="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@silferhome</a>
       </div>
-      <div class="num">(22) 99789-0447</div>
     </div>
   </section>
 </main>
@@ -513,7 +551,8 @@ footer .logo-word{color:var(--paper);font-size:22px}
 <footer>
   <div class="wrap">
     <span class="logo-word">SilFer home</span>
-    <span>Enxoval, mesa posta e decoração · RJ &amp; SP</span>
+    <span class="footer-desc">Enxoval, mesa posta e decoração · RJ &amp; SP</span>
+    <a class="footer-tel" href="tel:+5522997890447">(22) 99789-0447</a>
   </div>
 </footer>
 
